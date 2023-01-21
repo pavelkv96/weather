@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:l/l.dart';
 import 'package:weather/src/app.dart';
+import 'package:weather/src/common/util/error_util.dart';
 import 'package:weather/src/di/injection.dart';
 
 void run() {
@@ -17,6 +17,6 @@ void run() {
       await configureDI();
       runApp(const App());
     },
-    (error, stack) => l.e('Label: io_zoned_guarded, Error: $error', stack),
+    (error, stack) => ErrorUtil.logError(error, stackTrace: stack, hint: 'io_zoned_guarded'),
   );
 }
