@@ -1,5 +1,20 @@
 {
   "core": {
-    "application_title": "Weather1"
+    "application_title": "Weather",
+    "failure": {
+      "local": {
+        "database_failure": "Some local error"
+      },
+      "remote": {
+        "network_failure": "Something wrong",
+        "request_timed_out": "Request timed out",
+        "server_failure_404": "Invalid request",
+        "server_failure": "The server is temporarily unavailable",
+        "not_connected_failure": "No internet connection",
+        "network_failure_generic": "Unknown network error",
+        "unauthenticated_failure": "Unauthenticated request"
+      },
+      "unknown": "Unknown error"
+    }
   }
 }

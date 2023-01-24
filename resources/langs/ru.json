@@ -1,5 +1,20 @@
 {
   "core": {
-    "application_title": "Погода1"
+    "application_title": "Погода"
+  },
+  "failure": {
+    "local": {
+      "database_failure": "Неизвестная внутрення ошибка"
+    },
+    "remote": {
+      "network_failure": "Что-то пошло не так",
+      "request_timed_out": "Превышен интервал ожидания",
+      "server_failure_404": "Неверный запрос",
+      "server_failure": "Сервер временно не доступен",
+      "not_connected_failure": "Нет интернет соединения",
+      "network_failure_generic": "Неизвестная сетевая ошибка",
+      "unauthenticated_failure": "Не аутентифицированный запрос"
+    },
+    "unknown": "Неизвестная ошибка"
   }
 }
