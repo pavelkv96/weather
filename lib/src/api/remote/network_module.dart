@@ -5,8 +5,7 @@ import 'package:weather/src/common/util/network/cancel_token_callback.dart';
 
 @module
 abstract class NetworkModule {
-
-  static const String _accuWeatherApikey = 'Ip1cqAwAiZGzGYpFbZ3jQJFZWzHhPUEt';
+  static const String _accuWeatherApikey = 'YOUR_KEY';
   static const String _accuWeatherBaseUrl = 'http://dataservice.accuweather.com/';
 
   CancelCallback cancelToken() => CancelCallback(token: CancelToken());
