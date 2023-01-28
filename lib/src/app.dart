@@ -1,6 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
 import 'package:weather/generated/locale_keys.g.dart';
+import 'package:weather/src/di/injection.dart';
+import 'package:weather/src/navigation/navigation.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -22,25 +27,33 @@ class _App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      locale: context.locale,
-      supportedLocales: context.supportedLocales,
-      localizationsDelegates: context.localizationDelegates,
-      onGenerateTitle: (context) => tr(LocaleKeys.core_application_title),
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: const HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Flutter Demo Home Page')),
-      body: const Center(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<NavigationBloc>(create: (context) => locator<NavigationBloc>()),
+      ],
+      child: ChangeNotifierProvider<AppRouter>(
+        create: (context) => locator<AppRouter>(),
+        child: BlocBuilder<NavigationBloc, NavigationState>(
+          builder: (context, state) {
+            final appRouter = context.read<AppRouter>();
+            return MaterialApp.router(
+              routerDelegate: AutoRouterDelegate.declarative(
+                appRouter,
+                navRestorationScopeId: 'root_auto_router',
+                routes: (_) => state.pages,
+              ),
+              routeInformationParser: appRouter.defaultRouteParser(includePrefixMatches: true),
+              restorationScopeId: 'root_router',
+              locale: context.locale,
+              supportedLocales: context.supportedLocales,
+              localizationsDelegates: context.localizationDelegates,
+              debugShowCheckedModeBanner: false,
+              onGenerateTitle: (context) => tr(LocaleKeys.core_application_title),
+              theme: ThemeData(primarySwatch: Colors.blue),
+            );
+          },
+        ),
+      ),
     );
   }
 }

@@ -9,6 +9,7 @@ analyzer:
     # Generated code
     - 'lib/**config.dart'
     - 'lib/**.g.dart'
+    - 'lib/**.gr.dart'
     - 'lib/**.freezed.dart'
     - 'lib/**.graphql.dart'
     - 'lib/**.gen.dart'
