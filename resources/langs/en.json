@@ -9,6 +9,12 @@
       "empty": "Nothing found by your request"
     }
   },
+  "feature_cities": {
+    "appbar_title": "Manage cities",
+    "state": {
+      "empty": "Added cities be displayed here"
+    }
+  },
   "core": {
     "application_title": "Weather",
     "locale": {
