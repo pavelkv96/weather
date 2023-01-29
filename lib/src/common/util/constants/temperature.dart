@@ -1,0 +1,4 @@
+enum Temperature {
+  celsius,
+  fahrenheit;
+}
