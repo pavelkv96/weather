@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather/generated/locale_keys.g.dart';
 import 'package:weather/src/feature/city_search/presentation/bloc/city_search_bloc.dart';
 import 'package:weather/src/feature/city_search/presentation/model/city_search_model.dart';
+import 'package:weather/src/feature/selected_city/selected_city.dart';
 
 part '_widget.dart';
 

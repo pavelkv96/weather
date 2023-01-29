@@ -80,6 +80,8 @@ class _CitySearchWidgetSuccess extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final selectedCityBloc = context.read<SelectedCityBloc>();
+    final selectedCity = selectedCityBloc.state.whenOrNull(selected: (city) => city);
     return ListView.separated(
       separatorBuilder: (context, index) => const Divider(height: 1),
       padding: const EdgeInsets.symmetric(vertical: 4),
@@ -90,12 +92,25 @@ class _CitySearchWidgetSuccess extends StatelessWidget {
           key: ValueKey(city.id),
           city: city,
           onTap: () {
-            //TODO add city to list of cities
+            selectedCityBloc.add(_handleEvent(selectedCity, city));
             context.router.pop();
           },
         );
       },
     );
+  }
+
+  SelectedCityEvent _handleEvent(SelectedCityPresentation? selectedCity, CitySearchPresentation city) {
+    if (selectedCity != null) {
+      return SelectedCityEvent.createCity(id: city.id, name: city.name, area: city.area, country: city.country);
+    } else {
+      return SelectedCityEvent.createAndSelectCity(
+        id: city.id,
+        name: city.name,
+        area: city.area,
+        country: city.country,
+      );
+    }
   }
 }
 
