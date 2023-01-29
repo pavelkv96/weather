@@ -24,5 +24,8 @@ abstract class NetworkModule {
   }
 
   @lazySingleton
+  ForecastService forecastService(Dio dio) => ForecastService(dio);
+
+  @lazySingleton
   LocationService locationService(Dio dio) => LocationService(dio);
 }
