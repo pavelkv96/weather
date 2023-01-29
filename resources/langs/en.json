@@ -1,6 +1,19 @@
 {
+  "feature_city_search": {
+    "appbar_search_hint": "City search...",
+    "state": {
+      "initial": "Search results will be displayed here",
+      "success": {
+        "added_city": "Added"
+      },
+      "empty": "Nothing found by your request"
+    }
+  },
   "core": {
     "application_title": "Weather",
+    "locale": {
+      "request": "en-us"
+    },
     "failure": {
       "local": {
         "database_failure": "Some local error"
@@ -15,6 +28,11 @@
         "unauthenticated_failure": "Unauthenticated request"
       },
       "unknown": "Unknown error"
+    },
+    "widget": {
+      "button": {
+        "try_again": "Try again"
+      }
     }
   }
 }

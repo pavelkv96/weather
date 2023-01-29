@@ -1,20 +1,38 @@
 {
-  "core": {
-    "application_title": "Погода"
+  "feature_city_search": {
+    "appbar_search_hint": "Поиск города...",
+    "state": {
+      "initial": "Здесь будут отображаться результаты поиска",
+      "success": {
+        "added_city": "Добавлено"
+      },
+      "empty": "Ничего не найдено по вашему запросу"
+    }
   },
-  "failure": {
-    "local": {
-      "database_failure": "Неизвестная внутрення ошибка"
+  "core": {
+    "application_title": "Погода",
+    "locale": {
+      "request": "ru-ru"
     },
-    "remote": {
-      "network_failure": "Что-то пошло не так",
-      "request_timed_out": "Превышен интервал ожидания",
-      "server_failure_404": "Неверный запрос",
-      "server_failure": "Сервер временно не доступен",
-      "not_connected_failure": "Нет интернет соединения",
-      "network_failure_generic": "Неизвестная сетевая ошибка",
-      "unauthenticated_failure": "Не аутентифицированный запрос"
+    "failure": {
+      "local": {
+        "database_failure": "Неизвестная внутрення ошибка"
+      },
+      "remote": {
+        "network_failure": "Что-то пошло не так",
+        "request_timed_out": "Превышен интервал ожидания",
+        "server_failure_404": "Неверный запрос",
+        "server_failure": "Сервер временно не доступен",
+        "not_connected_failure": "Нет интернет соединения",
+        "network_failure_generic": "Неизвестная сетевая ошибка",
+        "unauthenticated_failure": "Не аутентифицированный запрос"
+      },
+      "unknown": "Неизвестная ошибка"
     },
-    "unknown": "Неизвестная ошибка"
+    "widget": {
+      "button": {
+        "try_again": "Повторить"
+      }
+    }
   }
 }
