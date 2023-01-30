@@ -63,7 +63,7 @@ class ForecastUpdaterRepositoryImpl implements ForecastUpdaterRepository {
   }) async {
     try {
       final forecast = await _forecastUpdaterLocalDataSource.fetchLastUpdate(cityId: cityId, forecast: forecastType);
-      if (forecast.lastUpdate.add(const Duration(hours: 1)).isBefore(DateTime.now())) {
+      if (forecast.lastUpdate.add(const Duration(hours: 8)).isBefore(DateTime.now())) {
         final daily = await request();
         await _forecastUpdaterLocalDataSource.updateDailyForecasts(
           forecastId: forecast.id,
