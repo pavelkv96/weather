@@ -12,9 +12,9 @@ class DailyForecastTable extends Table {
 
   RealColumn get temperatureMax => real().named('temperature_max').nullable()();
 
-  IntColumn get dayWeatherType => integer().named('day_weather_type')();
+  IntColumn get dayWeatherType => integer().named('day_weather_type').map(const WeatherTypeConverter())();
 
-  IntColumn get nightWeatherType => integer().named('night_weather_type')();
+  IntColumn get nightWeatherType => integer().named('night_weather_type').map(const WeatherTypeConverter())();
 
   @override
   String get tableName => 'daily_forecasts';

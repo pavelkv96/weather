@@ -10,7 +10,7 @@ class HourlyForecastTable extends Table {
 
   RealColumn get temperature => real().named('temperature').nullable()();
 
-  IntColumn get weatherType => integer().named('weather_type')();
+  IntColumn get weatherType => integer().named('weather_type').map(const WeatherTypeConverter())();
 
   @override
   String get tableName => 'hourly_forecasts';
