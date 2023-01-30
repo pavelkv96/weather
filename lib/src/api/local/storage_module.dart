@@ -16,4 +16,7 @@ abstract class StorageModule {
 abstract class DaoModule {
   @lazySingleton
   CitiesDao citiesDao(AppDatabase database) => CitiesDaoImpl(database);
+
+  @lazySingleton
+  ForecastDao forecastDao(AppDatabase database) => ForecastDaoImpl(database);
 }
