@@ -8,7 +8,7 @@ part 'forecast.g.dart';
 @JsonSerializable()
 class TemperatureValueRemote {
   @JsonKey(name: 'Value')
-  final double value;
+  final double? value;
 
   const TemperatureValueRemote({required this.value});
 
