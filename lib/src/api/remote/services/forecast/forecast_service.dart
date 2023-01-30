@@ -22,6 +22,13 @@ abstract class ForecastService {
     CancelToken? token,
   });
 
+  @GET('forecasts/v1/hourly/1hour/{city}')
+  Future<List<HourlyForecastRemote>> fetchHourlyForOneHourForecast({
+    @Path('city') required String city,
+    @Query('language') required String language,
+    CancelToken? token,
+  });
+
   @GET('forecasts/v1/hourly/12hour/{city}')
   Future<List<HourlyForecastRemote>> fetchHourlyForTwelveHoursForecast({
     @Path('city') required String city,
