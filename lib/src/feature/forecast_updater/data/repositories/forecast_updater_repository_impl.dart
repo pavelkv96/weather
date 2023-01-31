@@ -1,4 +1,3 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:injectable/injectable.dart';
 import 'package:weather/src/api/remote/remote.dart';
 import 'package:weather/src/common/error/error.dart';
@@ -21,19 +20,16 @@ class ForecastUpdaterRepositoryImpl implements ForecastUpdaterRepository {
 
   @override
   Future<void> forecastForCity({required int cityId}) async {
-    final language = tr('ru-ru');
     await _updateDailyForecast(
       cityId: cityId,
       forecastType: Forecast.fiveDays,
-      request: () => _forecastUpdaterRemoteDataSource.fetchDailyForFiveDaysForecast(city: cityId, language: language),
+      request: () => _forecastUpdaterRemoteDataSource.fetchDailyForFiveDaysForecast(city: cityId),
     );
 
     await _updateHourlyForecast(
       cityId: cityId,
       forecastType: Forecast.twelveHours,
-      request: () {
-        return _forecastUpdaterRemoteDataSource.fetchHourlyForTwelveHoursForecast(city: cityId, language: language);
-      },
+      request: () => _forecastUpdaterRemoteDataSource.fetchHourlyForTwelveHoursForecast(city: cityId),
     );
   }
 
@@ -77,7 +73,6 @@ class ForecastUpdaterRepositoryImpl implements ForecastUpdaterRepository {
 
   @override
   Future<void> forecastsForCities() async {
-    final language = tr('ru-ru');
     final cities = await _forecastUpdaterLocalDataSource.fetchAllCitiesIds();
     await Future.forEach(
       cities,
@@ -85,14 +80,12 @@ class ForecastUpdaterRepositoryImpl implements ForecastUpdaterRepository {
         _updateDailyForecast(
           cityId: cityId,
           forecastType: Forecast.oneDay,
-          request: () => _forecastUpdaterRemoteDataSource.fetchDailyForOneDayForecast(city: cityId, language: language),
+          request: () => _forecastUpdaterRemoteDataSource.fetchDailyForOneDayForecast(city: cityId),
         );
         _updateHourlyForecast(
           cityId: cityId,
           forecastType: Forecast.oneHour,
-          request: () {
-            return _forecastUpdaterRemoteDataSource.fetchHourlyForOneHourForecast(city: cityId, language: language);
-          },
+          request: () => _forecastUpdaterRemoteDataSource.fetchHourlyForOneHourForecast(city: cityId),
         );
       },
     );

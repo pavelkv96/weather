@@ -11,28 +11,28 @@ abstract class ForecastService {
   @GET('forecasts/v1/daily/1day/{city}')
   Future<DailyForecastsRemote> fetchDailyForOneDayForecast({
     @Path('city') required String city,
-    @Query('language') required String language,
+    @Query('language') String? language,
     CancelToken? token,
   });
 
   @GET('forecasts/v1/daily/5day/{city}')
   Future<DailyForecastsRemote> fetchDailyForFiveDaysForecast({
     @Path('city') required String city,
-    @Query('language') required String language,
+    @Query('language') String? language,
     CancelToken? token,
   });
 
   @GET('forecasts/v1/hourly/1hour/{city}')
   Future<List<HourlyForecastRemote>> fetchHourlyForOneHourForecast({
     @Path('city') required String city,
-    @Query('language') required String language,
+    @Query('language') String? language,
     CancelToken? token,
   });
 
   @GET('forecasts/v1/hourly/12hour/{city}')
   Future<List<HourlyForecastRemote>> fetchHourlyForTwelveHoursForecast({
     @Path('city') required String city,
-    @Query('language') required String language,
+    @Query('language') String? language,
     CancelToken? token,
   });
 }
