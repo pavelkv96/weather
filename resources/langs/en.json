@@ -15,6 +15,16 @@
       "empty": "Added cities be displayed here"
     }
   },
+  "feature_forecast": {
+    "today": "Today",
+    "daily": {
+      "forecast": "Daily forecast"
+    },
+    "hourly": {
+      "forecast": "Hourly forecast"
+    },
+    "weather_data_provider": "Data provided in part by AccuWeather"
+  },
   "core": {
     "application_title": "Weather",
     "locale": {

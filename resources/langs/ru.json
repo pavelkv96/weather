@@ -15,6 +15,16 @@
       "empty": "Здесь будут отображаться добавленные города"
     }
   },
+  "feature_forecast": {
+    "today": "Сегодня",
+    "daily": {
+      "forecast": "Ежедневный прогноз"
+    },
+    "hourly": {
+      "forecast": "Почасовой прогноз"
+    },
+    "weather_data_provider": "Данные предоставлены AccuWeather"
+  },
   "core": {
     "application_title": "Погода",
     "locale": {
