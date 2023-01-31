@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:l/l.dart';
 import 'package:weather/generated/locale_keys.g.dart';
 import 'package:weather/src/common/util/constants/asset.dart';
 import 'package:weather/src/common/util/constants/temperature.dart';
@@ -46,7 +45,6 @@ class ForecastPortrait extends StatelessWidget {
           ),
           BlocBuilder<DailyForecastBloc, DailyForecastState>(
             builder: (context, state) {
-              l.e('STATE $state');
               return state.maybeWhen(
                 success: (dailyForecast) => _DailyForecastSuccess(dailyForecast: dailyForecast),
                 orElse: () => const SizedBox(),
@@ -55,7 +53,6 @@ class ForecastPortrait extends StatelessWidget {
           ),
           BlocBuilder<HourlyForecastBloc, HourlyForecastState>(
             builder: (context, state) {
-              l.e('STATE $state');
               return state.maybeWhen(
                 success: (hourlyForecast) => _HourlyForecastSuccess(hourlyForecast: hourlyForecast),
                 orElse: () => const SizedBox(),
