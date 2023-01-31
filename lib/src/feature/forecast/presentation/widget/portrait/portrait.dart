@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:l/l.dart';
 import 'package:weather/generated/locale_keys.g.dart';
+import 'package:weather/src/common/util/constants/asset.dart';
 import 'package:weather/src/common/util/constants/temperature.dart';
 import 'package:weather/src/common/util/extension/date_time.dart';
 import 'package:weather/src/feature/forecast/presentation/bloc/daily_forecast_bloc.dart';

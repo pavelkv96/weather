@@ -183,7 +183,7 @@ class _DailyForecastPortraitCard extends StatelessWidget {
                 ),
               ),
             Image.asset(
-              'resources/weather/icons/${day.dayWeatherType.icon}',
+              '$weatherIconAssetPath${day.dayWeatherType.icon}',
               width: 70,
               height: 40,
             ),
