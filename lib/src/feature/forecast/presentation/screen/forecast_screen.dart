@@ -38,6 +38,7 @@ class ForecastScreen extends StatelessWidget {
         },
         child: OrientationLayout(
           portrait: ForecastPortrait(city: city),
+          landscape: ForecastLandscape(city: city),
         ),
       ),
     );
