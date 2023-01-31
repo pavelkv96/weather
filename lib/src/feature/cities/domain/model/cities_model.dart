@@ -3,9 +3,9 @@ import 'package:equatable/equatable.dart';
 class CityDomain with EquatableMixin {
   final int id;
   final String name;
-  final int? minTemperature;
-  final int? maxTemperature;
-  final int? currentTemperature;
+  final double? minTemperature;
+  final double? maxTemperature;
+  final double? currentTemperature;
 
   const CityDomain({
     required this.id,

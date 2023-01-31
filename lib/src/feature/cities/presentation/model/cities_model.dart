@@ -1,21 +1,21 @@
 import 'package:equatable/equatable.dart';
 import 'package:weather/src/common/util/constants/temperature.dart';
-import 'package:weather/src/common/util/extension/int.dart';
+import 'package:weather/src/common/util/extension/double.dart';
 import 'package:weather/src/feature/cities/domain/model/cities_model.dart';
 
 class CityPresentation with EquatableMixin {
   final int id;
   final String name;
-  final int? _maxTemperature;
-  final int? _minTemperature;
-  final int? _currentTemperature;
+  final double? _maxTemperature;
+  final double? _minTemperature;
+  final double? _currentTemperature;
 
   const CityPresentation({
     required this.id,
     required this.name,
-    required int? maxTemperature,
-    required int? minTemperature,
-    required int? currentTemperature,
+    required double? maxTemperature,
+    required double? minTemperature,
+    required double? currentTemperature,
   })  : _maxTemperature = maxTemperature,
         _minTemperature = minTemperature,
         _currentTemperature = currentTemperature;
