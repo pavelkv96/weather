@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:weather/generated/locale_keys.g.dart';
 import 'package:weather/src/common/theme/app_theme.dart';
 import 'package:weather/src/di/injection.dart';
+import 'package:weather/src/feature/forecast_updater/forecast_updater.dart';
 import 'package:weather/src/feature/selected_city/selected_city.dart';
 import 'package:weather/src/navigation/navigation.dart';
 
@@ -31,6 +32,7 @@ class _App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider<ForecastUpdaterBloc>(create: (context) => locator<ForecastUpdaterBloc>()),
         BlocProvider<SelectedCityBloc>(create: (context) => locator<SelectedCityBloc>()),
         BlocProvider<NavigationBloc>(create: (context) => locator<NavigationBloc>()),
       ],
@@ -43,7 +45,7 @@ class _App extends StatelessWidget {
                 unknown: () => const NavigationEvent.splash(),
                 unselected: () => const NavigationEvent.cities(),
                 selected: (city) {
-                  // todo check updates forecast for current city
+                  context.read<ForecastUpdaterBloc>().add(ForecastUpdaterEvent.forecastForCity(cityId: city.id));
                   return const NavigationEvent.forecast();
                 },
               );
