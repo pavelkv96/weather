@@ -14,4 +14,9 @@ class ForecastTable extends Table {
 
   @override
   String get tableName => 'forecasts_info';
+
+  @override
+  List<Set<Column>> get uniqueKeys => [
+    {cityId, forecastType},
+  ];
 }

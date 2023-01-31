@@ -18,11 +18,15 @@ class ForecastDaoImpl extends DatabaseAccessor<AppDatabase> with _$ForecastDaoIm
 
   @override
   Future<ForecastLocal> fetchLastUpdate({required int cityId, required Forecast forecast}) async {
-    return (await (select(forecastTable)
-              ..where((table) => table.cityId.equals(cityId) & table.forecastType.equals(forecast.type)))
-            .getSingleOrNull()) ??
-        (await into(forecastTable)
-            .insertReturning(ForecastTableCompanion.insert(cityId: cityId, forecastType: forecast)));
+    return transaction(
+      () async {
+        return (await (select(forecastTable)
+                  ..where((table) => table.cityId.equals(cityId) & table.forecastType.equals(forecast.type)))
+                .getSingleOrNull()) ??
+            (await into(forecastTable)
+                .insertReturning(ForecastTableCompanion.insert(cityId: cityId, forecastType: forecast)));
+      },
+    );
   }
 
   @override
