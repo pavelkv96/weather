@@ -18,6 +18,7 @@
   "core": {
     "application_title": "Weather",
     "locale": {
+      "time": "en_US",
       "request": "en-us"
     },
     "failure": {

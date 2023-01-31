@@ -18,6 +18,7 @@
   "core": {
     "application_title": "Погода",
     "locale": {
+      "time": "ru_RU",
       "request": "ru-ru"
     },
     "failure": {
