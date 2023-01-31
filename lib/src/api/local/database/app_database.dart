@@ -13,7 +13,9 @@ part 'app_database.g.dart';
   ],
   daos: [
     CitiesDaoImpl,
+    DailyForecastsDaoImpl,
     ForecastDaoImpl,
+    HourlyForecastsDaoImpl,
   ],
 )
 class AppDatabase extends _$AppDatabase {

@@ -19,4 +19,10 @@ abstract class DaoModule {
 
   @lazySingleton
   ForecastDao forecastDao(AppDatabase database) => ForecastDaoImpl(database);
+
+  @lazySingleton
+  DailyForecastsDao dailyForecastDao(AppDatabase database) => DailyForecastsDaoImpl(database);
+
+  @lazySingleton
+  HourlyForecastsDao hourlyForecastsDao(AppDatabase database) => HourlyForecastsDaoImpl(database);
 }
