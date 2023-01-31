@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:weather/generated/locale_keys.g.dart';
+import 'package:weather/src/common/theme/app_theme.dart';
 import 'package:weather/src/di/injection.dart';
 import 'package:weather/src/feature/selected_city/selected_city.dart';
 import 'package:weather/src/navigation/navigation.dart';
@@ -68,7 +69,9 @@ class _App extends StatelessWidget {
                 localizationsDelegates: context.localizationDelegates,
                 debugShowCheckedModeBanner: false,
                 onGenerateTitle: (context) => tr(LocaleKeys.core_application_title),
-                theme: ThemeData(primarySwatch: Colors.blue),
+                themeMode: ThemeMode.system,
+                theme: AppTheme.getLightTheme(),
+                darkTheme: AppTheme.getDarkTheme(),
               );
             },
           ),
