@@ -8,6 +8,7 @@ abstract class AppTheme {
       brightness: Brightness.light,
       useMaterial3: true,
       cardTheme: CardTheme(
+        elevation: 4,
         clipBehavior: Clip.hardEdge,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       ),
@@ -19,6 +20,7 @@ abstract class AppTheme {
       brightness: Brightness.dark,
       useMaterial3: true,
       cardTheme: CardTheme(
+        elevation: 4,
         clipBehavior: Clip.hardEdge,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       ),
